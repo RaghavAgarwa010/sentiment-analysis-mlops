@@ -1,0 +1,14 @@
+.github/
+.pytest_cache/
+**/__pycache__/
+data/
+mlruns/
+notebooks/
+venv/
+*.pyc 
+.git/
+.gitignore
+mlflow.db
+src/monitoring/
+src/utils/
+tests/
