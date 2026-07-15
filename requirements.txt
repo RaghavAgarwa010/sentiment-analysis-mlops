@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
 transformers
 datasets
@@ -16,23 +16,5 @@ pytest
 httpx
 python-dotenv
 loguru
-=======
-torch
-transformers
-datasets
-scikit-learn
-numpy
-pandas
-mlflow
-fastapi
-uvicorn
-pydantic
-evidently
-streamlit
-dvc
-pytest
-httpx
-python-dotenv
-loguru
->>>>>>> 894069089cdc6186dda8e64cf76101745abc0d29
 tqdm
+huggingface_hub
