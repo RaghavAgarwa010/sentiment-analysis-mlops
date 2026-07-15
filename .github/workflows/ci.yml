@@ -29,3 +29,26 @@ jobs:
 
       - name: running tests
         run: pytest
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install huggingface_hub
+        run: pip install huggingface_hub
+
+      - name: Download model from Hugging Face Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='Raghav0511/distilbert-sentiment-imdb', local_dir='models/distilbert-sentiment', token='${HF_TOKEN}')"
+
+      - name: Build Docker image
+        run: docker build -t sentiment-analysis:ci .
