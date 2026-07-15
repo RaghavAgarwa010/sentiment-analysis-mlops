@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initializing virtual-machine
+        uses: actions/checkout@v4
+
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Download model from Hugging Face Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='Raghav0511/distilbert-sentiment-imdb', local_dir='models/distilbert-sentiment', token='${HF_TOKEN}')"
+
+      - name: running tests
+        run: pytest
