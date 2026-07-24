@@ -2,6 +2,8 @@
 .pytest_cache/
 **/__pycache__/
 data/
+!data/reference/
+!data/reference/reference_data.csv
 mlruns/
 notebooks/
 venv/
@@ -9,6 +11,5 @@ venv/
 .git/
 .gitignore
 mlflow.db
-src/monitoring/
 src/utils/
 tests/
