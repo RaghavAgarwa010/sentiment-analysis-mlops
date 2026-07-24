@@ -9,7 +9,6 @@ mlflow
 fastapi
 uvicorn
 pydantic
-evidently
 streamlit
 dvc
 pytest

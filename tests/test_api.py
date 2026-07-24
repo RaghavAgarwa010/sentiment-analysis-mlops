@@ -21,3 +21,4 @@ def test_pred_neg():
         response=client.post("/predict", json={"text":"This was such a horrible movie!"})
         assert response.status_code==200
         assert "label" in response.json()
+
